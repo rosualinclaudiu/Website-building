@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <transition name="fade">
+            <div class="faded" v-if="show">
+                Se vede sau nu
+            </div>
+        </transition>
+
+
+        <transition name="bounce">
+            <div class="bounced">
+                Acesta este un element care face bounce
+            </div>
+        </transition>
+
+
+        <button @click="switchShow()">
+            Apasa-ma
+        </button>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: false,
+            },
+            methods: {
+                switchShow() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+    <style>
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+            animation-duration: 2s;
+        }
+
+        .fade-enter-to, .fade-leave {
+            opacity: 1;
+            animation-duration: 2s;
+        }
+
+        .fade-enter-active, .fade-leave-active {
+            transform: opacity 2s;
+        }
+
+        .bounce-enter {
+            animation-duration: 1s;
+        }
+
+        .bounce-leave {
+            animation-duration: 1s;
+        }
+    </style>
+
+</body>
+
+</html>
