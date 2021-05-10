@@ -14,7 +14,9 @@
     <div id="products">
         <router-link to="/cart">Cart</router-link>
         <router-link to="/">Home</router-link>
+        <router-link to="/account">Account</router-link>
         <router-view></router-view>
+        
         <p>Max Price: ({{ value + '$'}}) {{ productsCount }}</p>
         <div id="cart">
             <span>🛒</span>
@@ -28,6 +30,6 @@
         <product-list :products="filterProductsByName" v-on:add-to-cart-event="addToCart"></product-list>
                
     </div>
-    
+ 
 </body>
 </html>

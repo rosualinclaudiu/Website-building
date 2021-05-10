@@ -12,7 +12,7 @@ Vue.component('product-list', {
 })
 
 const Home = {
-  templet: <div>Aici va fi Home</div>
+  template: <div>Aici va fi Home</div>
 }
 
 const Cart = {
@@ -23,11 +23,16 @@ const PageNotFound = {
   template: <div>Pagina nu a fost gasita</div>
 }
 
-const ecom_router = now VueRouter({
+const Account = {
+  template: <div>Aici va fi pagina de account</div>
+}
+
+const ecom_router = new VueRouter({
   routers: [
-    { path: "/", component: Home }
-    { path: '*', component: PageNotFound },
-    { path: '/cart', component: Cart }
+    // { path: '*', component: PageNotFound },
+    { path: '/', component: Home },
+    { path: '/cart', component: Cart },
+    { path: '/account', component: Account }    
   ]
 })
 
