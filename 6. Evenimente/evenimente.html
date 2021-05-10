@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <post v-for="item in posts"
+             :post-name="item.name"
+            v-on:enlarge-text="postFontSize =+ 0.1">
+
+        </post>
+
+    </div>
+
+    <script>
+
+        class Post {
+            constructor(title, name) {
+                this.title = title;
+                this.name = name;
+            }
+        }
+
+        Vue.component("post", {
+            props: ['postName'],
+            template: `<div class="post">
+                        Salut  {{ postName }}
+                        <button @click="$emit('enlarge-text')"> Face ceva </button>
+                      </div>`
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                posts: [
+                    new Post("discount", "Discount de 30%"),
+                    new Post ("vremea buna", "Niste titlu"),
+                    new Post ("Lorem Impsum", "Niste titlu"),
+
+                ]
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
