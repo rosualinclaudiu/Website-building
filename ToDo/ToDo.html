@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="toDo.css">
+    <script src="toDo.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="todo-list">
+            <h1>To do:</h1>
+            <div class="filters">
+                <label>{{ "Total: " +  todos.length}} </label>
+            </div>
+            <ul>
+                <!-- <li v-for="(todo, index) in todos" v-bind:class="{done: todo.isDone}"
+                                                          class="task">
+                    <div class="title" >
+                        {{todo.title}}
+                    </div>
+                    
+                    <div class="controls">
+                        <div class="check" @click="checkTodo(index)">✅</div>
+                        <div class="delete" @click="deleteTodo(index)">❌</div>
+                    </div>
+                   
+                     
+                 </li> -->
+                 <task v-for="(todo, index) in todos"
+                        taks_title="todo.title"
+                        v-bind = "task_isDone"
+                        @click="checkTodo(index)"
+                        @click="deleteTodo(index)">
+                </task>
+                
+            </ul>
+            <div class="new_task">
+                    Task:
+                    <input type="text" v-model="task" @keyup.enter="saveTodo" placeholder="What do you need to do?">
+                <div class="save_task"><button @click="saveTodo">Save item</button></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
