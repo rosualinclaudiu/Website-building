@@ -19,8 +19,8 @@
         </transition>
 
 
-        <transition name="bounce">
-            <div class="bounced">
+        <transition name="bounce" >
+            <div class="bounced" v-if="show">
                 Acesta este un element care face bounce
             </div>
         </transition>
@@ -48,25 +48,38 @@
     <style>
         .fade-enter, .fade-leave-to {
             opacity: 0;
-            animation-duration: 2s;
+            animation-duration: 1s;
         }
 
         .fade-enter-to, .fade-leave {
             opacity: 1;
-            animation-duration: 2s;
+            animation-duration: 1s;
         }
 
         .fade-enter-active, .fade-leave-active {
-            transform: opacity 2s;
+            transform: opacity 1s;
         }
 
-        .bounce-enter {
-            animation-duration: 1s;
+        .bounce-enter-active {
+            animation: bounce-in 1s;
         }
 
-        .bounce-leave {
-            animation-duration: 1s;
+        .bounce-leave-active {
+            animation: bounce-in 1s reverse;
         }
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
     </style>
 
 </body>
